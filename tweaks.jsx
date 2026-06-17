@@ -1,13 +1,13 @@
 // Tweaks island — writes CSS vars on <html>. Page itself is vanilla.
 // (Light/dark is handled by the header toggle + localStorage, not here.)
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "flavor": ["#1F9D7A", "#10624F"],
+  "flavor": ["#F26A3D", "#B83A24"],
   "grain": true,
   "displayFont": "Bricolage Grotesque"
 }/*EDITMODE-END*/;
 
 const FLAVORS = {
-  fresh:  ["#1F9D7A", "#10624F"],
+  coral:  ["#F26A3D", "#B83A24"],
   berry:  ["#C0356B", "#922650"],
   citrus: ["#D98A1F", "#B06E12"],
   mint:   ["#2F9E78", "#1F6E54"],
@@ -18,7 +18,7 @@ const LIGHT_DISPLAY = { "Instrument Serif": true };
 
 function applyTweaks(t) {
   const root = document.documentElement;
-  const [a, deep] = Array.isArray(t.flavor) ? t.flavor : FLAVORS.fresh;
+  const [a, deep] = Array.isArray(t.flavor) ? t.flavor : FLAVORS.coral;
   root.style.setProperty('--accent', a);
   root.style.setProperty('--accent-deep', deep);
   root.style.setProperty('--accent-soft', hexA(a, 0.12));
@@ -40,7 +40,7 @@ function App() {
       <TweakColor
         label="Accent"
         value={t.flavor}
-        options={[FLAVORS.fresh, FLAVORS.berry, FLAVORS.citrus, FLAVORS.mint]}
+        options={[FLAVORS.coral, FLAVORS.berry, FLAVORS.citrus, FLAVORS.mint]}
         onChange={(v) => setTweak('flavor', v)}
       />
       <TweakSection label="Typography" />
